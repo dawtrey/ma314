@@ -1,8 +1,13 @@
-l = [1,2,3,2,1]
+l = [1,1,1,1,1,2,3,2,1]
 
-def peak(l):
-    m = cat(l,l[-1] - 1)
-    for i in len(l):
-        if l[i] > l[i+1]
-            return l[i]
-## iterate on middle n - 2 numbers and write special cases for first and last numbers. 
+def peak(x):
+    a = x[0] - 1
+    z = x[-1] - 1
+    m = [a] + x + [z]  
+    for i in range(len(m)):
+        if m[i] > m[i + 1]:
+            return i
+    
+
+print(peak(l))
+
