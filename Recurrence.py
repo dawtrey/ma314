@@ -5,16 +5,13 @@ def rec(i):
 print(rec(100))
 
 
-"""
 def iter(n): 
+    A = [0.5]
     if(n == 1):
         return 1
     else:
-        x = 1
-        y = 1
-        for i in range(1,n):
-            z = (x + y // 2)
-            x = y
-            y = z
-            return y
-"""
+        for i in range(n):            
+            A.append(A[i]+A[(i+1)//2])
+        return int(A[n])
+
+print(iter(100))

@@ -1,5 +1,11 @@
-Recommended book: * Introduction to Algorithms {[}CRLS{]} Additional:
-Algorithm Design {[}KT{]}
+\author{Tom Dawtrey}
+\title{MA314: Algorithms and Programming}
+\maketitle
+
+\tableofcontents
+
+Recommended book: Introduction to Algorithms [}RLS] \newline Additional:
+Algorithm Design [KT]
 
 \hypertarget{assessment}{%
 \section{Assessment}\label{assessment}}
@@ -47,17 +53,20 @@ Take the n digit numbers and split them into two n/2 digit numbers.
 This is a recursive algorithm as it calls itself during its running.
 
 For two numbers of length n (assuming n is a power of two), $T(n) = 4 
-\times T(n/2) + k \times n$ for some $ k \in \mathbb{n}$
+\times T(n/2) + k \times n$ for some $ k \in \mathbb{N}$
 
-So T(n) = 4 T(n/2) + kn = 4\^{}2 T(n/2\^{}2) + 3kn \ldots{} = 4\^{}c
-T(n/2\^{}c) + (2\^{}c - 1)kn = n\^{}2 ( T(1) + k ) - kn
+So:
+\begin{align*}
+	T(n) &= 4 T(n/2) + kn \\&= 4^2 T(n/2^2) + 3kn \\&\ldots{} \\&= 4^{c} 
+	T(n/2^c) + (2^c - 1)kn\\& = n^2 ( T(1) + k ) - kn
+\end{align*}
 
 \hypertarget{big-o-notation}{%
 \section{Big-O notation}\label{big-o-notation}}
 
 \emph{See lecture notes for the correct algebra for assertaining the
 Big-O time of an algoritm.}
-
+Paul Bachmann + Edmund Landau
 \hypertarget{sorting-algorithms}{%
 \section{Sorting algorithms}\label{sorting-algorithms}}
 
@@ -93,19 +102,32 @@ Insertion sort is fast for small lsits because the algorithm is simple.
 The algorithmic analog of proof by induction.
 
 for example, with insertion sort: Induction hypothesis: At the start of
-the i-th iteration, A{[}0:i-1{]} is sorted.
+the i-th iteration, A[0:i-1] is sorted.
 
 Induction step: i implies i + 1
 
 \emph{See notes/slides for induction technique.}
 
-There are three key steps: * Initalisation: it is true prior to the
-first iteration of the first loop. * Maintenance * Termination
+There are three key steps: 
+
+\begin{itemize}
+	\item Initalisation: it is true prior to the
+first iteration of the first loop. 
+	\item Maintenance 
+	\item Termination
+\end{itemize}
 
 \hypertarget{measuring-running-time}{%
 \section{Measuring running time}\label{measuring-running-time}}
 
 \emph{Slide in lec 2}
+
+\emph{put previous justification for merge sort running time here}
+\begin{align*}
+	T(n) &= 2 T(n/2) + an + b\\&= 2^2 T(n/2^2) + 2an+b \\&\ldots{} \\&= 4^{c} 
+	T(n/2^c) + (2^c - 1)kn\\& = n^2 ( T(1) + k ) - kn
+\end{align*}
+
 
 \hypertarget{worst-case-analysis}{%
 \subsection{Worst case analysis}\label{worst-case-analysis}}

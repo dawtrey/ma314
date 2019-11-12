@@ -1,52 +1,72 @@
 class Node:
     # Replace the next two lines with your code for (a)
-    def __int__(self, value, next, prev):
+    def __init__(self, value, next, prev):
       self.value = value
       self.next = next
       self.prev = prev 
 
 class DoublyLinkedList:
     # Replace the next two lines with your code for (b)
-    def __init__(self, head, tail):
+    def __init__(self):
       self.head = None
+      self.tail = None
 
     def __str__(self):
         # Replace the next line with your code for (c)
-        return "String output"
+        if self.head == None:
+            a = "Empty"
+        else:   
+            a = str(self.head.value)
+            b = self.head
+            while b.next != None:
+                a += " <-> " + str(b.next.value)
+                b = b.next
+        return "List: " + a
 
     def isEmpty(self):
         # Replace the next line with your code for (d)
-        if head == None:
+        if self.head == None:
           return True
         return False
 
     def insertAtHead(self, item):
         # Replace the next line with your code for (e)
-        if isEmpty(self) == True:
-            self.head = item
-            self.tail = item
-            item.prev = None
-            item.next = None
-        else: self.head, item.next, item.prev, self.head.prev = item, self.head, None, item
+        x = Node(item, None, None)
+        if self.tail == None:
+            self.head = x
+            self.tail = x
+        else: self.head, x.next, x.prev, self.head.prev = x, self.head, None, x 
         pass
 
     def insertAtTail(self, item):
         # Replace the next line with your code for (f)
+        x = Node(item, None, None)
         if self.tail == None:
           insertAtHead(self, item)
-        else: self.tail, item.next, item.prev, self.tail.next = item, None, self.tail, item
+        else: self.tail, x.next, x.prev, self.tail.next = x, None, self.tail, x 
         pass
-
           
 
     def popHead(self):
         # Replace the next line with your code for (g)
-        x, self.head, self.head.next = self.head, self.head.next, None
+        if self.head == None:
+            return "None" 
+        if self.head == self.tail:
+            x = self.head.value
+            self.head, self.tail = None, None
+            return x
+        x, self.head = self.head.value, self.head.next
         return x
 
     def popTail(self):
         # Replace the next line with your code for (h)
-        
+        if self.head == None:
+            return "None" 
+        if self.head == self.tail:
+            x = self.head.value
+            self.head, self.tail = None, None
+            return x
+        x, self.tail = self.tail.value, self.tail.prev
         return x
 
 if __name__ == '__main__':
