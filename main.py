@@ -43,30 +43,34 @@ class DoublyLinkedList:
         x = Node(item, None, None)
         if self.tail == None:
           insertAtHead(self, item)
-        else: self.tail, x.next, x.prev, self.tail.next = x, None, self.tail, x 
+        else: 
+            self.tail.next =  x
+            self.tail, x.next, x.prev = x, None, self.tail 
         pass
           
 
     def popHead(self):
         # Replace the next line with your code for (g)
-        if self.head == None:
+        if DoublyLinkedList.isEmpty(self):
             return "None" 
+        x = self.head.value
         if self.head == self.tail:
-            x = self.head.value
             self.head, self.tail = None, None
             return x
-        x, self.head = self.head.value, self.head.next
+        self.head = self.head.next
         return x
 
     def popTail(self):
         # Replace the next line with your code for (h)
-        if self.head == None:
+        if DoublyLinkedList.isEmpty(self):
             return "None" 
+        x = self.tail.value
         if self.head == self.tail:
-            x = self.head.value
             self.head, self.tail = None, None
             return x
-        x, self.tail = self.tail.value, self.tail.prev
+        
+        self.tail = self.tail.prev
+        self.tail.next = None
         return x
 
 if __name__ == '__main__':
