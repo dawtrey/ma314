@@ -1,3 +1,5 @@
+# 34877
+
 class Node:
     # Replace the next two lines with your code for (a)
     def __init__(self, value, next, prev):
@@ -68,7 +70,6 @@ class DoublyLinkedList:
         if self.head == self.tail:
             self.head, self.tail = None, None
             return x
-        
         self.tail = self.tail.prev
         self.tail.next = None
         return x
